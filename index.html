@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
@@ -9,22 +10,45 @@
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/skeleton.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-  </head>
-  <body>
+    <script type="text/javascript" src="assets/js/pdf.js"></script>
+    <script type="text/javascript">
+        PDFJS.workerSrc = "assets/js/pdf.worker.js";
+        var url = "https://raw.githubusercontent.com/yaminoma/Producer_Card/master/card.pdf";
+        PDFJS.getDocument(url)
+            .then(function(pdf) {
+                return pdf.getPage(1);
+            })
+            .then(function(page) {
+                var scale = 1.0;
+                var viewport = page.getViewport(scale);
+                var canvas = document.getElementById('the-canvas');
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+            });
+    </script>
+</head>
+
+<body>
     <header>
-      <div>
-	<h1>闇に飲まれよ!</h1>
-      	<img src="assets/images/top.png">
-      </div>
+        <div>
+            <h1>Kanzaki Ranko</h1>
+            <img src="assets/images/top.png">
+        </div>
     </header>
     <main>
-      <section>
-        <div class="container center">
-        <iframe width="100%" height="300px" src="viewer.html?file=card.pdf"></iframe>
-        <table style="margin:0 auto 30px auto"><tbody><tr><th>タイプ</th><td>クール</td></tr><tr><th>年齢</th><td>14歳</td></tr><tr><th>学年</th><td>中学2年生</td></tr><tr><th>身長</th><td>156cm</td></tr><tr><th>体重</th><td>41kg</td></tr><tr><th>BMI</th><td>16.85</td></tr><tr><th>B-W-H</th><td>81-57-80</td></tr><tr><th>誕生日</th><td>4月8日</td></tr><tr><th>星座</th><td>牡羊座</td></tr><tr><th>血液型</th><td>A型</td></tr><tr><th>利き手</th><td>右</td></tr><tr><th>出身地</th><td>熊本県</td></tr><tr><th>趣味</th><td>絵を描くこと</td></tr><tr><th>CV</th><td>内田真礼</td></tr></tbody></table>
-	<p>&copy; 2017 Kanzaki Ranko All Rights Reserved.</p>
-	</div>
-      </section>
+        <section>
+            <div class="container center">
+                <canvas id="the-canvas"></canvas>
+                <p>&copy; 2017 Kanzaki Ranko All Rights Reserved.</p>
+            </div>
+        </section>
     </main>
-  </body>
+</body>
+
 </html>
