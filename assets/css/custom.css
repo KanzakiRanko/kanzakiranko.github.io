@@ -1,9 +1,16 @@
-/* Font Settings */
-
-@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+/* Windows 用 Medium 指定の游ゴシック */
+@font-face {
+  font-family: "Yu Gothic M";
+  src: local("Yu Gothic Medium");
+}
+/* font-weight: bold の時は通常どおり Bold 書体を使わせる */
+@font-face {
+  font-family: "Yu Gothic M";
+  src: local("Yu Gothic Bold");
+  font-weight: bold;
+}
 
 /* Global Settings */
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -18,26 +25,29 @@ body {
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 16px;
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
 }
 
-html,
-body,
-body section {
-    font-family: 'Noto Sans Japanese', sans-serif;
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+html, body, body section {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", HelveticaNeue, "Segoe UI", "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN W3", HiraKakuProN-W3, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-
 /* Layout */
-
 .center {
     text-align: center;
 }
@@ -46,20 +56,14 @@ h6 {
     float: right;
 }
 
+
 h2 {
     color: #081388;
-    font-family: 'Noto Sans Japanese' !important;
 }
 
 h3 {
     color: #1FB7F7;
-    font-family: 'Noto Sans Japanese' !important;
 }
-
-canvas {
-    width: 100% !important;
-}
-
 .www::before {
     display: inline-block;
     font: normal normal normal 18px/1 FontAwesome;
@@ -72,16 +76,15 @@ canvas {
     content: "\f0ac";
 }
 
-
 /* Header */
-
 header {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #fd6cff), color-stop(0.00, #510054));
-    background: -webkit-linear-gradient(#510054, #fd6cff);
-    background: -moz-linear-gradient(#510054, #fd6cff);
-    background: -o-linear-gradient(#510054, #fd6cff);
-    background: -ms-linear-gradient(#510054, #fd6cff);
-    background: linear-gradient(#510054, #fd6cff);
+background: -webkit-linear-gradient(#510054, #fd6cff);
+background: -moz-linear-gradient(#510054, #fd6cff);
+background: -o-linear-gradient(#510054, #fd6cff);
+background: -ms-linear-gradient(#510054, #fd6cff);
+background: linear-gradient(#510054, #fd6cff);
+
     z-index: 1;
     overflow: hidden;
     width: 100%;
@@ -94,35 +97,37 @@ header {
     align-items: center;
 }
 
-header>div {
+header > div {
     width: 80%;
     margin: auto;
     text-align: center;
     text-transform: uppercase;
 }
-
-header>div>img {
-    width: 100%;
+header > div > img {
+    width:100%;
     max-width: 750px;
 }
-
 header h1 {
-    font-family: 'Archivo Black', sans-serif;
     color: white;
     padding: 1em 0;
     line-height: 1em;
 }
 
-
-/* Content */
-
+ /* Content */
 main {
-    background: url(/assets/images/bg.png) repeat left top white;
+    background: url(https://ranko.imgix.net/bg.png?auto=format) repeat left top white;
     position: absolute;
     top: 80%;
     width: 100%;
     min-height: 12%;
+    margin: auto;
+    text-align: center;
     z-index: 2;
+}
+
+main > section > div > img {
+    width: 100%;
+    max-width: 950px;
 }
 
 section .container {
@@ -138,9 +143,7 @@ section p {
     text-indent: 1em;
 }
 
-
 /* Address */
-
 address {
     text-decoration: none;
     font-style: normal;
@@ -154,9 +157,7 @@ address dt {
     text-align: right;
 }
 
-
 /* Footer */
-
 footer {
     text-align: center;
     position: fixed;
@@ -164,6 +165,6 @@ footer {
     left: 0;
     width: 100%;
     z-index: 5;
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 0.5em;
+    background: rgba(0,0,0,0.7);
+	font-size: 0.5em;
 }
