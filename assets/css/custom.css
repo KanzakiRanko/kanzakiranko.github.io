@@ -115,7 +115,7 @@ header h1 {
 
  /* Content */
 main {
-    background: url(https://ranko.imgix.net/bg.png?auto=format) repeat left top white;
+    background: url(https://res.cloudinary.com/meteors/image/upload/f_auto/ranko-love/bg.png) repeat left top white;
     position: absolute;
     top: 80%;
     width: 100%;
