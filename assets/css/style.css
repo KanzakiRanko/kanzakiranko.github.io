@@ -349,7 +349,7 @@ section:nth-child(2n) {
 
 section img {
 	width: 100%;
-	max-width: 800px;
+	max-width: 500px;
 }
 
 address {
