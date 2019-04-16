@@ -348,7 +348,8 @@ section:nth-child(2n) {
 }
 
 section img {
-    width: 100%
+	width: 100%;
+	max-width: 800px;
 }
 
 address {
