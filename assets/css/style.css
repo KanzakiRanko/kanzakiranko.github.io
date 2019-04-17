@@ -411,7 +411,7 @@ footer {
   text-align: center;
   color: white;
   vertical-align: middle;
-  background-image: url("../images/game.png");
+  background-image: url("https://res.cloudinary.com/meteors/image/upload/w_100,h_100,f_auto,c_fill/ranko-love/game.png");
   background-position: center center;
   background-size: cover;
 }
